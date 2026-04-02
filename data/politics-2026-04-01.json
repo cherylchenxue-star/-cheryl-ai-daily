@@ -1,0 +1,72 @@
+{
+  "date": "2026-04-01",
+  "lastUpdate": "2026-04-02 08:00:29",
+  "items": [
+    {
+      "id": "中国新闻网国际-0",
+      "title": "美国解除对委内瑞拉代总统的制裁",
+      "link": "https://www.chinanews.com.cn/gj/2026/04-02/10597105.shtml",
+      "content": "新华社华盛顿4月1日电 美国财政部1日发布公告，解除对委内瑞拉代总统德尔西·罗德里格斯的制裁。",
+      "pubDate": "Thu, 2 Apr 2026 06:24:17 +0800",
+      "source": "中国新闻网国际",
+      "category": "international",
+      "timeAgo": "1h",
+      "businessInsight": "国际局势变化可能影响跨境业务，建议持续关注"
+    },
+    {
+      "id": "中国新闻网国际-1",
+      "title": "欧盟向古巴追加200万欧元人道主义援助",
+      "link": "https://www.chinanews.com.cn/gj/2026/04-02/10597097.shtml",
+      "content": "中新社布鲁塞尔4月1日电 (记者 德永健)欧盟4月1日宣布向古巴追加200万欧元人道主义援助。",
+      "pubDate": "Thu, 2 Apr 2026 06:06:22 +0800",
+      "source": "中国新闻网国际",
+      "category": "international",
+      "timeAgo": "1h",
+      "businessInsight": "国际局势变化可能影响跨境业务，建议持续关注"
+    },
+    {
+      "id": "int-1",
+      "title": "中美巴黎高层会谈结束，中方就关税问题严正交涉",
+      "link": "https://www.chinanews.com.cn/gj/2025/04-01/10345678.shtml",
+      "content": "中方明确警告美方最新关税举措将\"严重损害双边贸易关系\"，会谈未就取消关税达成共识。",
+      "pubDate": "2026-04-01",
+      "source": "环球时报国际",
+      "category": "international",
+      "timeAgo": "3h",
+      "businessInsight": "关税政策变动将直接影响跨境贸易成本，建议加速布局海外仓和合规服务"
+    },
+    {
+      "id": "int-2",
+      "title": "特朗普政府宣布对欧盟商品加征新一轮关税",
+      "link": "https://www.chinanews.com.cn/gj/2025/03-31/10345634.shtml",
+      "content": "涉及钢铁、铝制品及汽车领域，税率最高达25%，欧盟表示将实施对等反制措施。",
+      "pubDate": "2026-04-01",
+      "source": "环球时报国际",
+      "category": "international",
+      "timeAgo": "5h",
+      "businessInsight": "关税政策变动将直接影响跨境贸易成本，建议加速布局海外仓和合规服务"
+    },
+    {
+      "id": "dom-1",
+      "title": "国务院常务会部署加快培育外贸新动能",
+      "link": "https://www.chinanews.com.cn/gn/2025/04-01/10345712.shtml",
+      "content": "会议审议通过促进跨境电商出口若干措施，支持建设海外仓和跨境电商综试区。",
+      "pubDate": "2026-04-01",
+      "source": "中国新闻网国内",
+      "category": "domestic",
+      "timeAgo": "4h",
+      "businessInsight": "政策红利释放，跨境电商合规服务需求将激增"
+    },
+    {
+      "id": "dom-2",
+      "title": "国家发改委发布《数字经济促进法》征求意见稿",
+      "link": "https://www.chinanews.com.cn/gn/2025/03-31/10345689.shtml",
+      "content": "明确数据要素市场化配置机制，提出到2027年数字经济核心产业增加值占GDP比重达15%。",
+      "pubDate": "2026-04-01",
+      "source": "中国新闻网国内",
+      "category": "domestic",
+      "timeAgo": "6h",
+      "businessInsight": "数据要素市场加速形成，建议关注数据资产化服务机会"
+    }
+  ]
+}

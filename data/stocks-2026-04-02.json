@@ -1,0 +1,149 @@
+{
+  "date": "2026-04-02",
+  "lastUpdate": "2026-04-02 05:38:39",
+  "dataSource": "Longbridge SDK (Real-time)",
+  "isMock": false,
+  "indices": [
+    {
+      "symbol": "QQQ.US",
+      "name": "纳斯达克100",
+      "market": "美股",
+      "flag": "US",
+      "price": 584.31,
+      "change": 7.13,
+      "changePercent": 1.24,
+      "volume": "79435132",
+      "_source": "real-time"
+    },
+    {
+      "symbol": "HSI.HK",
+      "name": "恒生指数",
+      "market": "港股",
+      "flag": "HK",
+      "price": 25017.23,
+      "change": -276.8,
+      "changePercent": -1.09,
+      "volume": "8239031525",
+      "_source": "real-time"
+    },
+    {
+      "symbol": "000001.SH",
+      "name": "上证指数",
+      "market": "A股",
+      "flag": "CN",
+      "price": 3927.6,
+      "change": -20.95,
+      "changePercent": -0.53,
+      "volume": "339805650",
+      "_source": "real-time"
+    }
+  ],
+  "m7": [
+    {
+      "symbol": "NVDA.US",
+      "name": "英伟达",
+      "flag": "US",
+      "price": 175.75,
+      "change": 1.35,
+      "changePercent": 0.77,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "MSFT.US",
+      "name": "微软",
+      "flag": "US",
+      "price": 369.37,
+      "change": -0.8,
+      "changePercent": -0.22,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "AAPL.US",
+      "name": "苹果",
+      "flag": "US",
+      "price": 255.63,
+      "change": 1.84,
+      "changePercent": 0.73,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "GOOGL.US",
+      "name": "谷歌",
+      "flag": "US",
+      "price": 297.39,
+      "change": 9.83,
+      "changePercent": 3.42,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "AMZN.US",
+      "name": "亚马逊",
+      "flag": "US",
+      "price": 210.57,
+      "change": 2.3,
+      "changePercent": 1.1,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "META.US",
+      "name": "Meta",
+      "flag": "US",
+      "price": 579.23,
+      "change": 7.1,
+      "changePercent": 1.24,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "TSLA.US",
+      "name": "特斯拉",
+      "flag": "US",
+      "price": 381.26,
+      "change": 9.51,
+      "changePercent": 2.56,
+      "_source": "real-time"
+    }
+  ],
+  "hkStocks": [
+    {
+      "symbol": "00700.HK",
+      "name": "腾讯",
+      "flag": "HK",
+      "price": 488.4,
+      "change": -8.2,
+      "changePercent": -1.65,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "09988.HK",
+      "name": "阿里",
+      "flag": "HK",
+      "price": 118.4,
+      "change": -4.3,
+      "changePercent": -3.5,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "03690.HK",
+      "name": "美团",
+      "flag": "HK",
+      "price": 79.4,
+      "change": -2.55,
+      "changePercent": -3.11,
+      "_source": "real-time"
+    },
+    {
+      "symbol": "01810.HK",
+      "name": "小米",
+      "flag": "HK",
+      "price": 30.7,
+      "change": -1.32,
+      "changePercent": -4.12,
+      "_source": "real-time"
+    }
+  ],
+  "marketCommentary": {
+    "us": "美股科技股分化，AI板块持续强势",
+    "cn": "A股震荡整理，结构性行情明显",
+    "hk": "港股回调，南向资金持续流入"
+  }
+}

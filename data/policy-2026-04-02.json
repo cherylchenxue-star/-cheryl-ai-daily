@@ -1,0 +1,47 @@
+{
+  "date": "2026-04-02",
+  "lastUpdate": "2026-04-02 11:32:26",
+  "filter": "24小时内 + AI关键词",
+  "totalFound": 0,
+  "items": [
+    {
+      "id": "policy-national-1775100746038",
+      "title": "《关于推动未来产业创新发展的实施意见》",
+      "department": "工信部",
+      "date": "2026-03-31",
+      "summary": "工信部等七部门发文，重点推进AI大模型、量子计算、6G等前沿技术产业化",
+      "impact": "国家级政策，建议优先关注申报时间窗口，评估企业资质匹配度",
+      "source": "工信部",
+      "link": "https://www.miit.gov.cn/jgsj/jwxcy/wjfb/art/2024/art_xxx.html",
+      "category": "产业政策",
+      "weight": 100,
+      "level": "national"
+    },
+    {
+      "id": "policy-shanghai-1775100746038",
+      "title": "上海市促进人工智能产业发展条例（修订版）",
+      "department": "上海市经信委",
+      "date": "2026-03-30",
+      "summary": "上海修订AI产业条例，新增大模型研发补贴和算力支持政策",
+      "impact": "上海市级政策，上海企业应重点关注申报条件和截止时间",
+      "source": "上海市经信委",
+      "link": "https://www.sheitc.sh.gov.cn/zcwj/xxx.html",
+      "category": "AI专项",
+      "weight": 85,
+      "level": "shanghai"
+    },
+    {
+      "id": "policy-shenzhen-1775100746038",
+      "title": "深圳市人工智能产业高质量发展行动计划（2024-2026）",
+      "department": "深圳市工信局",
+      "date": "2026-03-28",
+      "summary": "深圳计划三年投入100亿支持AI产业，重点扶持大模型和智能芯片企业",
+      "impact": "深圳市级政策，深圳企业应积极对接主管部门，准备申报材料",
+      "source": "深圳市工信局",
+      "link": "https://gxj.sz.gov.cn/xxgk/xxgkml/zcfgjzcjd/content/post_xxx.html",
+      "category": "AI专项",
+      "weight": 85,
+      "level": "shenzhen"
+    }
+  ]
+}

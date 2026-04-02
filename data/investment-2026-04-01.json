@@ -1,0 +1,286 @@
+{
+  "date": "2026-04-01",
+  "lastUpdate": "2026-04-02 08:00:32",
+  "items": [
+    {
+      "id": "inv-001",
+      "company": "滴普科技",
+      "round": "B+轮",
+      "amount": "2.5亿元",
+      "investors": [
+        "软银愿景基金",
+        "红杉中国",
+        "IDG资本"
+      ],
+      "date": "2026-04-01",
+      "category": "AI+财税",
+      "description": "企业级大模型应用服务商，聚焦AI+财税合规、智能审计场景。",
+      "businessInsight": "与跨赋在AI出口退税领域形成直接竞争，建议加速产品迭代",
+      "priority": "P0",
+      "link": "https://36kr.com/company/1831226453",
+      "isCompetitor": true
+    },
+    {
+      "id": "inv-004",
+      "company": "智谱AI",
+      "round": "战略融资",
+      "amount": "未披露",
+      "investors": [
+        "沙特阿美旗下基金",
+        "腾讯",
+        "阿里",
+        "高瓴"
+      ],
+      "date": "2026-04-01",
+      "category": "大模型",
+      "description": "国内领先的大模型公司，GLM系列模型广泛应用于各行各业。",
+      "businessInsight": "估值超30亿美元，资本热度回升，可关注战略合作或接入机会",
+      "priority": "P0",
+      "link": "https://36kr.com/company/176543",
+      "isPartner": true
+    },
+    {
+      "id": "inv-003",
+      "company": "百望云",
+      "round": "Pre-IPO轮",
+      "amount": "数亿元",
+      "investors": [
+        "深创投",
+        "东方富海"
+      ],
+      "date": "2026-03-30",
+      "category": "财税SaaS",
+      "description": "电子发票及财税数字化服务商，正在推进港股IPO。",
+      "businessInsight": "财税SaaS赛道IPO窗口期，关注其估值及市场反馈",
+      "priority": "P0",
+      "link": "https://36kr.com/company/12345",
+      "isCompetitor": true
+    },
+    {
+      "id": "inv-006",
+      "company": "DeepSeek",
+      "round": "A轮",
+      "amount": "数亿元",
+      "investors": [
+        "红杉中国",
+        "真格基金"
+      ],
+      "date": "2026-03-28",
+      "category": "大模型",
+      "description": "幻方量化背景的大模型公司，以高性价比著称。",
+      "businessInsight": "API价格极具竞争力，可作为跨赋/DE的大模型供应商备选",
+      "priority": "P0",
+      "link": "https://36kr.com/company/198765",
+      "isPartner": true
+    },
+    {
+      "id": "inv-002",
+      "company": "海致科技",
+      "round": "C轮",
+      "amount": "1.8亿美元",
+      "investors": [
+        "高瓴资本",
+        "腾讯投资",
+        "红杉中国"
+      ],
+      "date": "2026-03-31",
+      "category": "企业评估AI",
+      "description": "垂直行业大模型服务商，推出\"海致企智\"企业评估AI系统。",
+      "businessInsight": "与DE产品在AI企业经营评估领域有直接竞争，建议差异化定位",
+      "priority": "P1",
+      "link": "https://36kr.com/company/1883823120",
+      "isCompetitor": true
+    },
+    {
+      "id": "inv-005",
+      "company": "MiniMax",
+      "round": "B+轮",
+      "amount": "6亿美元",
+      "investors": [
+        "阿里巴巴",
+        "红杉中国",
+        "高瓴资本"
+      ],
+      "date": "2026-03-29",
+      "category": "大模型",
+      "description": "视频生成模型能力领先，海螺AI产品用户增长迅速。",
+      "businessInsight": "多模态大模型竞争激烈，可关注其API定价及服务稳定性",
+      "priority": "P1",
+      "link": "https://36kr.com/company/189234",
+      "isPartner": true
+    },
+    {
+      "id": "inv-007",
+      "company": "第四范式",
+      "round": "D+轮",
+      "amount": "10亿元",
+      "investors": [
+        "国开金融",
+        "中信建投"
+      ],
+      "date": "2026-03-27",
+      "category": "企业AI",
+      "description": "企业级AI平台服务商，聚焦金融、零售、能源等行业。",
+      "businessInsight": "已在港股上市，关注其财报中的企业AI市场趋势",
+      "priority": "P1",
+      "link": "https://36kr.com/company/112233",
+      "isEcosystem": true
+    },
+    {
+      "id": "inv-008",
+      "company": "云帐房",
+      "round": "D轮",
+      "amount": "3亿元",
+      "investors": [
+        "高瓴资本",
+        "经纬中国"
+      ],
+      "date": "2026-03-26",
+      "category": "财税SaaS",
+      "description": "智能财税解决方案提供商，服务超过200万企业客户。",
+      "businessInsight": "财税SaaS市场整合加速，关注其产品矩阵扩张方向",
+      "priority": "P1",
+      "link": "https://36kr.com/company/445566",
+      "isCompetitor": true
+    }
+  ],
+  "watchlist": {
+    "competitors": [
+      {
+        "id": "inv-001",
+        "company": "滴普科技",
+        "round": "B+轮",
+        "amount": "2.5亿元",
+        "investors": [
+          "软银愿景基金",
+          "红杉中国",
+          "IDG资本"
+        ],
+        "date": "2026-04-01",
+        "category": "AI+财税",
+        "description": "企业级大模型应用服务商，聚焦AI+财税合规、智能审计场景。",
+        "businessInsight": "与跨赋在AI出口退税领域形成直接竞争，建议加速产品迭代",
+        "priority": "P0",
+        "link": "https://36kr.com/company/1831226453",
+        "isCompetitor": true
+      },
+      {
+        "id": "inv-002",
+        "company": "海致科技",
+        "round": "C轮",
+        "amount": "1.8亿美元",
+        "investors": [
+          "高瓴资本",
+          "腾讯投资",
+          "红杉中国"
+        ],
+        "date": "2026-03-31",
+        "category": "企业评估AI",
+        "description": "垂直行业大模型服务商，推出\"海致企智\"企业评估AI系统。",
+        "businessInsight": "与DE产品在AI企业经营评估领域有直接竞争，建议差异化定位",
+        "priority": "P1",
+        "link": "https://36kr.com/company/1883823120",
+        "isCompetitor": true
+      },
+      {
+        "id": "inv-003",
+        "company": "百望云",
+        "round": "Pre-IPO轮",
+        "amount": "数亿元",
+        "investors": [
+          "深创投",
+          "东方富海"
+        ],
+        "date": "2026-03-30",
+        "category": "财税SaaS",
+        "description": "电子发票及财税数字化服务商，正在推进港股IPO。",
+        "businessInsight": "财税SaaS赛道IPO窗口期，关注其估值及市场反馈",
+        "priority": "P0",
+        "link": "https://36kr.com/company/12345",
+        "isCompetitor": true
+      },
+      {
+        "id": "inv-008",
+        "company": "云帐房",
+        "round": "D轮",
+        "amount": "3亿元",
+        "investors": [
+          "高瓴资本",
+          "经纬中国"
+        ],
+        "date": "2026-03-26",
+        "category": "财税SaaS",
+        "description": "智能财税解决方案提供商，服务超过200万企业客户。",
+        "businessInsight": "财税SaaS市场整合加速，关注其产品矩阵扩张方向",
+        "priority": "P1",
+        "link": "https://36kr.com/company/445566",
+        "isCompetitor": true
+      }
+    ],
+    "partners": [
+      {
+        "id": "inv-004",
+        "company": "智谱AI",
+        "round": "战略融资",
+        "amount": "未披露",
+        "investors": [
+          "沙特阿美旗下基金",
+          "腾讯",
+          "阿里",
+          "高瓴"
+        ],
+        "date": "2026-04-01",
+        "category": "大模型",
+        "description": "国内领先的大模型公司，GLM系列模型广泛应用于各行各业。",
+        "businessInsight": "估值超30亿美元，资本热度回升，可关注战略合作或接入机会",
+        "priority": "P0",
+        "link": "https://36kr.com/company/176543",
+        "isPartner": true
+      },
+      {
+        "id": "inv-006",
+        "company": "DeepSeek",
+        "round": "A轮",
+        "amount": "数亿元",
+        "investors": [
+          "红杉中国",
+          "真格基金"
+        ],
+        "date": "2026-03-28",
+        "category": "大模型",
+        "description": "幻方量化背景的大模型公司，以高性价比著称。",
+        "businessInsight": "API价格极具竞争力，可作为跨赋/DE的大模型供应商备选",
+        "priority": "P0",
+        "link": "https://36kr.com/company/198765",
+        "isPartner": true
+      }
+    ],
+    "ecosystem": [
+      {
+        "id": "inv-007",
+        "company": "第四范式",
+        "round": "D+轮",
+        "amount": "10亿元",
+        "investors": [
+          "国开金融",
+          "中信建投"
+        ],
+        "date": "2026-03-27",
+        "category": "企业AI",
+        "description": "企业级AI平台服务商，聚焦金融、零售、能源等行业。",
+        "businessInsight": "已在港股上市，关注其财报中的企业AI市场趋势",
+        "priority": "P1",
+        "link": "https://36kr.com/company/112233",
+        "isEcosystem": true
+      }
+    ]
+  },
+  "statistics": {
+    "total": 8,
+    "p0": 4,
+    "p1": 4,
+    "p2": 0,
+    "totalAmount": null
+  },
+  "errors": []
+}
