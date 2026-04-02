@@ -1,0 +1,58 @@
+name: Daily Update and Deploy
+
+on:
+  schedule:
+    - cron: '0 23 * * *'  # 每天 UTC 23:00 (北京时间次日 7:00)
+  workflow_dispatch:      # 手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch news data
+        run: node scripts/fetch-news-v3.js
+        continue-on-error: true
+
+      - name: Commit new data to master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --quiet && git diff --staged --quiet || git commit -m "update: daily data $(date +%Y-%m-%d)"
+          git push
+        continue-on-error: true
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Copy new data to gh-pages
+        run: |
+          cp data/*.json gh-pages/data/ 2>/dev/null || true
+          ls -la gh-pages/data/
+
+      - name: Deploy to gh-pages
+        run: |
+          cd gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --quiet && git diff --staged --quiet || git commit -m "update: daily data $(date +%Y-%m-%d)"
+          git push
+        continue-on-error: true
