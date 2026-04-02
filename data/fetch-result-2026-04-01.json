@@ -1,0 +1,13 @@
+{
+  "date": "2026-04-01",
+  "startTime": "2026-04-02 08:00:00",
+  "endTime": "2026-04-02 08:00:33",
+  "status": {
+    "stocks": "success",
+    "news": "success",
+    "policy": "success",
+    "investment": "success",
+    "summary": "success"
+  },
+  "errors": []
+}

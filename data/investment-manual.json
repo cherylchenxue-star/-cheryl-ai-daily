@@ -1,0 +1,42 @@
+{
+  "description": "36氪创投平台手动维护数据 - 可从 https://pitchhub.36kr.com/ 获取最新融资信息",
+  "lastUpdate": "2026-04-02",
+  "items": [
+    {
+      "id": "manual-1",
+      "company": "智谱AI",
+      "amount": "25亿人民币",
+      "round": "C+轮",
+      "investors": "沙特阿美旗下基金、腾讯、阿里",
+      "industry": "大模型",
+      "date": "2026-04-02",
+      "source": "36氪创投平台",
+      "link": "https://pitchhub.36kr.com/",
+      "insight": "大模型赛道融资热度不减，智谱作为第一梯队企业估值持续攀升，建议关注其港股上市进程"
+    },
+    {
+      "id": "manual-2",
+      "company": "月之暗面",
+      "amount": "10亿美元",
+      "round": "B+轮",
+      "investors": "阿里、腾讯、高榕资本",
+      "industry": "大模型",
+      "date": "2026-04-01",
+      "source": "36氪创投平台",
+      "link": "https://pitchhub.36kr.com/",
+      "insight": "Kimi智能助手用户增长迅速，长文本能力成为差异化竞争优势"
+    },
+    {
+      "id": "manual-3",
+      "company": "Minimax",
+      "amount": "15亿人民币",
+      "round": "B轮",
+      "investors": "红杉中国、高瓴资本",
+      "industry": "AIGC",
+      "date": "2026-04-01",
+      "source": "36氪创投平台",
+      "link": "https://pitchhub.36kr.com/",
+      "insight": "视频生成是AI应用落地的重要场景，Minimax技术积累深厚，商业化进展迅速"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+node_modules/
+.env
+.DS_Store
+*.log
+scripts/fetch_real_sdk.py
+scripts/fetch-stocks.js
+scripts/fetch-all-v2.js
+scripts/fetch-investment-real.js
+server.js

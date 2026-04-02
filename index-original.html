@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>明心战略新闻日报 | Mingxin Daily Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Noto Serif SC', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'ming': {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+            font-family: 'Inter', 'Noto Serif SC', system-ui, sans-serif;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 2px 4px -1px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section-icon {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.7s;
+        }
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px) scale(1.005);
+            box-shadow:
+                0 20px 40px -12px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(59, 130, 246, 0.1);
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .trend-up {
+            color: #dc2626;
+            font-weight: 600;
+            text-shadow: 0 0 20px rgba(220, 38, 38, 0.1);
+        }
+        .trend-down {
+            color: #16a34a;
+            font-weight: 600;
+            text-shadow: 0 0 20px rgba(22, 163, 74, 0.1);
+        }
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.5), rgba(59, 130, 246, 0.3), transparent);
+            position: relative;
+        }
+        .divider-gradient::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.8), transparent);
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0%, rgba(30, 64, 175, 0.06) 100%);
+            border-left: 3px solid #3b82f6;
+            position: relative;
+        }
+        .highlight-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.03));
+            pointer-events: none;
+        }
+        /* 表格行hover效果 */
+        tbody tr {
+            transition: all 0.2s ease;
+        }
+        tbody tr:hover {
+            background: rgba(59, 130, 246, 0.03);
+            transform: scale(1.002);
+        }
+        /* 按钮光效 */
+        button {
+            position: relative;
+            overflow: hidden;
+        }
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        button:active::after {
+            width: 300px;
+            height: 300px;
+        }
+        /* 文字选中效果 */
+        ::selection {
+            background: rgba(59, 130, 246, 0.2);
+            color: #1e40af;
+        }
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(59, 130, 246, 0.5);
+        }
+        /* 输入框聚焦效果 */
+        select:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        /* 链接下划线动画 */
+        a {
+            position: relative;
+            text-decoration: none;
+        }
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+        a:hover::after {
+            width: 100%;
+        }
+        @media print {
+            body { background: white; }
+            .glass, .glass-dark { background: white; border: 1px solid #ddd; }
+            .no-print { display: none !important; }
+        }
+        @media (max-width: 768px) {
+            .glass { background: rgba(255, 255, 255, 0.95); }
+        }
+    </style>
+</head>
+<body class="py-6 md:py-12">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+
+        <!-- 头部 -->
+        <header class="glass rounded-3xl p-6 md:p-10 mb-8 card-hover fade-in" style="animation-delay: 0s">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-2xl section-icon flex items-center justify-center text-white text-xl">
+                            <i class="fa fa-newspaper-o"></i>
+                        </div>
+                        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 font-serif tracking-tight">
+                            明心战略新闻日报
+                        </h1>
+                    </div>
+                    <p class="text-ming-600 text-lg font-medium ml-15" id="header-date">
+                        <i class="fa fa-calendar-o mr-2"></i>加载中...
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3 no-print items-center">
+                    <!-- 日期选择器 -->
+                    <div class="relative">
+                        <select id="date-selector" onchange="loadDataByDate(this.value)"
+                                class="pl-10 pr-8 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700 font-medium cursor-pointer appearance-none min-w-[140px] hover:border-gray-400 transition">
+                            <option value="">加载中...</option>
+                        </select>
+                        <i class="fa fa-calendar absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <i class="fa fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                    </div>
+
+                    <button onclick="refreshData()" class="px-5 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl hover:shadow-lg transition flex items-center gap-2 font-medium">
+                        <i class="fa fa-refresh"></i>
+                        <span class="hidden md:inline">刷新数据</span>
+                    </button>
+                    <button onclick="window.print()" class="px-5 py-3 bg-gray-800 text-white rounded-xl hover:shadow-lg transition flex items-center gap-2 font-medium">
+                        <i class="fa fa-print"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 核心摘要 -->
+            <div class="mt-8 p-6 rounded-2xl highlight-box">
+                <h2 class="text-lg font-bold text-indigo-900 mb-3 flex items-center">
+                    <i class="fa fa-star-o mr-2 text-indigo-600"></i>核心摘要
+                </h2>
+                <p id="core-summary" class="text-gray-700 leading-relaxed text-base">
+                    今日全球政治格局保持相对稳定，AI产业持续高热，国内外政策利好频出。美股科技股表现强劲，M7集体上涨；A股结构性行情明显，科创板活跃；港股科技股受南向资金青睐。建议关注今日重要事件及市场情绪变化。
+                </p>
+            </div>
+        </header>
+
+        <!-- 政治新闻 -->
+        <section class="glass rounded-3xl p-6 md:p-8 mb-8 card-hover fade-in" style="animation-delay: 0.1s">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-blue-500 flex items-center justify-center text-white">
+                    <i class="fa fa-globe"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">政治新闻</h2>
+            </div>
+
+            <!-- 国际政治 -->
+            <div class="mb-8">
+                <h3 class="text-sm font-bold text-blue-700 uppercase tracking-wider mb-4 flex items-center">
+                    <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                    一、国际政治
+                </h3>
+                <div id="intl-politics" class="space-y-4">
+                    <article class="p-5 rounded-2xl bg-slate-50 hover:bg-slate-100 transition border border-slate-200">
+                        <h4 class="font-bold text-gray-900 mb-2 text-lg">1. 美联储维持利率不变，暗示年内可能降息</h4>
+                        <p class="text-gray-600 mb-3 leading-relaxed">美联储在最新议息会议上决定维持基准利率不变，点阵图显示多数官员预期年内将有两次降息。</p>
+                        <div class="flex items-start gap-2 text-indigo-700 bg-indigo-50 p-3 rounded-xl">
+                            <i class="fa fa-lightbulb-o mt-1"></i>
+                            <span class="text-sm font-medium">💡 降息预期利好全球风险资产，新兴市场或迎资金回流。</span>
+                        </div>
+                        <div class="mt-3 text-xs text-gray-400">来源：<a href="https://www.bloomberg.com" target="_blank" class="text-blue-600 hover:underline">彭博社</a></div>
+                    </article>
+                    <article class="p-5 rounded-2xl bg-slate-50 hover:bg-slate-100 transition border border-slate-200">
+                        <h4 class="font-bold text-gray-900 mb-2 text-lg">2. 中欧峰会达成多项合作协议</h4>
+                        <p class="text-gray-600 mb-3 leading-relaxed">双方就绿色能源、数字经济等领域签署十余项合作协议，同意加强产业链供应链合作。</p>
+                        <div class="flex items-start gap-2 text-indigo-700 bg-indigo-50 p-3 rounded-xl">
+                            <i class="fa fa-lightbulb-o mt-1"></i>
+                            <span class="text-sm font-medium">💡 中欧关系缓和利好出口型企业，新能源汽车产业链受益明显。</span>
+                        </div>
+                        <div class="mt-3 text-xs text-gray-400">来源：<a href="https://www.xinhuanet.com" target="_blank" class="text-blue-600 hover:underline">新华社</a></div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="divider-gradient my-6"></div>
+
+            <!-- 国内政治 -->
+            <div>
+                <h3 class="text-sm font-bold text-red-700 uppercase tracking-wider mb-4 flex items-center">
+                    <span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span>
+                    二、国内政治
+                </h3>
+                <div id="domestic-politics" class="space-y-4">
+                    <article class="p-5 rounded-2xl bg-red-50/50 hover:bg-red-50 transition border border-red-100">
+                        <h4 class="font-bold text-gray-900 mb-2 text-lg">1. 国务院发布新一轮减税降费政策</h4>
+                        <p class="text-gray-600 mb-3 leading-relaxed">针对中小微企业和高新技术企业推出阶段性税收减免措施，预计全年减负超5000亿元。</p>
+                        <div class="flex items-start gap-2 text-red-700 bg-red-100/50 p-3 rounded-xl">
+                            <i class="fa fa-lightbulb-o mt-1"></i>
+                            <span class="text-sm font-medium">💡 财税SaaS服务商将受益于政策红利，税友股份等标的值得关注。</span>
+                        </div>
+                        <div class="mt-3 text-xs text-gray-400">来源：<a href="https://www.gov.cn" target="_blank" class="text-blue-600 hover:underline">中国政府网</a></div>
+                    </article>
+                    <article class="p-5 rounded-2xl bg-red-50/50 hover:bg-red-50 transition border border-red-100">
+                        <h4 class="font-bold text-gray-900 mb-2 text-lg">2. 地方政府专项债发行提速</h4>
+                        <p class="text-gray-600 mb-3 leading-relaxed">多地加速发行专项债支持基建投资，新基建、智慧城市成为重点投向。</p>
+                        <div class="flex items-start gap-2 text-red-700 bg-red-100/50 p-3 rounded-xl">
+                            <i class="fa fa-lightbulb-o mt-1"></i>
+                            <span class="text-sm font-medium">💡 基建投资回暖将带动相关产业链，关注AI+政务标的。</span>
+                        </div>
+                        <div class="mt-3 text-xs text-gray-400">来源：<a href="http://www.mof.gov.cn" target="_blank" class="text-blue-600 hover:underline">财政部</a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI行业深度资讯 -->
+        <section class="glass rounded-3xl p-6 md:p-8 mb-8 card-hover fade-in" style="animation-delay: 0.2s">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-purple-500 flex items-center justify-center text-white">
+                    <i class="fa fa-android"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">AI行业深度资讯</h2>
+            </div>
+
+            <!-- 海外AI -->
+            <div class="mb-8">
+                <h3 class="text-sm font-bold text-purple-700 uppercase tracking-wider mb-4 flex items-center">
+                    <span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>
+                    一、海外AI动态
+                </h3>
+                <div id="ai-intl" class="grid md:grid-cols-2 gap-4">
+                    <article class="p-5 rounded-2xl bg-purple-50/50 border border-purple-100 hover:shadow-md transition">
+                        <h4 class="font-bold text-gray-900 mb-2">1. OpenAI发布GPT-5预览版</h4>
+                        <p class="text-gray-600 text-sm mb-3">新版本在图像理解、视频生成方面实现突破，企业级API调用成本降低40%。</p>
+                        <div class="text-purple-700 text-sm font-medium">
+                            💡 大模型成本下降加速应用落地，关注AI基础设施和垂直应用领域。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://techcrunch.com" target="_blank" class="text-blue-600 hover:underline">TechCrunch</a></div>
+                    </article>
+                    <article class="p-5 rounded-2xl bg-purple-50/50 border border-purple-100 hover:shadow-md transition">
+                        <h4 class="font-bold text-gray-900 mb-2">2. 谷歌Gemini Enterprise获大型企业广泛采用</h4>
+                        <p class="text-gray-600 text-sm mb-3">财富500强中已有超过30%的企业开始试点使用Gemini进行业务流程优化。</p>
+                        <div class="text-purple-700 text-sm font-medium">
+                            💡 企业级AI应用进入爆发期，B端AI服务商迎来黄金窗口期。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://www.theinformation.com" target="_blank" class="text-blue-600 hover:underline">The Information</a></div>
+                    </article>
+                    <article class="p-5 rounded-2xl bg-purple-50/50 border border-purple-100 hover:shadow-md transition">
+                        <h4 class="font-bold text-gray-900 mb-2">3. 英伟达发布新一代AI芯片</h4>
+                        <p class="text-gray-600 text-sm mb-3">Blackwell架构芯片正式量产，能效比显著改善，已获得多家云厂商大额订单。</p>
+                        <div class="text-purple-700 text-sm font-medium">
+                            💡 算力军备竞赛持续，国产算力替代逻辑强化，关注华为昇腾生态。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://www.reuters.com" target="_blank" class="text-blue-600 hover:underline">Reuters</a></div>
+                    </article>
+                    <article class="p-5 rounded-2xl bg-purple-50/50 border border-purple-100 hover:shadow-md transition">
+                        <h4 class="font-bold text-gray-900 mb-2">4. Meta开源最新多模态大模型</h4>
+                        <p class="text-gray-600 text-sm mb-3">LLaMA 3多模态版本向社区开源，性能接近GPT-4V但参数量更小。</p>
+                        <div class="text-purple-700 text-sm font-medium">
+                            💡 开源生态繁荣降低AI应用门槛，垂直场景落地将加速。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://ai.meta.com/blog" target="_blank" class="text-blue-600 hover:underline">Meta AI Blog</a></div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="divider-gradient my-6"></div>
+
+            <!-- 国内AI -->
+            <div>
+                <h3 class="text-sm font-semibold text-orange-700 uppercase tracking-wider mb-4 flex items-center">
+                    <span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>
+                    二、国内AI动态
+                </h3>
+                <div id="ai-domestic" class="grid md:grid-cols-2 gap-4">
+                    <article class="p-5 rounded-2xl bg-orange-50/50 border border-orange-100 hover:shadow-md transition">
+                        <h4 class="font-bold text-gray-900 mb-2">1. 通义千问3.0发布，中文理解能力登顶</h4>
+                        <p class="text-gray-600 text-sm mb-3">阿里发布通义千问新一代模型，在多项中文NLP评测中超越GPT-4。</p>
+                        <div class="text-orange-700 text-sm font-medium">
+                            💡 国产大模型能力跃升，阿里云业务有望迎来新增长点。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://www.aliyun.com" target="_blank" class="text-blue-600 hover:underline">阿里云</a></div>
+                    </article>
+                    <article class="p-5 rounded-2xl bg-orange-50/50 border border-orange-100 hover:shadow-md transition">
+                        <h4 class="font-bold text-gray-900 mb-2">2. 智谱AI完成新一轮融资，估值超200亿</h4>
+                        <p class="text-gray-600 text-sm mb-3">本轮融资由国资背景基金领投，资金将用于大模型训练和商业化拓展。</p>
+                        <div class="text-orange-700 text-sm font-medium">
+                            💡 头部大模型公司估值持续攀升，商业化落地能力成为关键。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://36kr.com" target="_blank" class="text-blue-600 hover:underline">36氪</a></div>
+                    </article>
+                    <article class="p-5 rounded-2xl bg-orange-50/50 border border-orange-100 hover:shadow-md transition">
+                        <h4 class="font-bold text-gray-900 mb-2">3. 百度文心一言企业版用户突破10万</h4>
+                        <p class="text-gray-600 text-sm mb-3">文心一言在企业服务市场增长迅速，金融、教育、政务成为主要应用场景。</p>
+                        <div class="text-orange-700 text-sm font-medium">
+                            💡 B端AI应用开始放量，关注有行业Know-how的解决方案商。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://www.baidu.com" target="_blank" class="text-blue-600 hover:underline">百度</a></div>
+                    </article>
+                    <article class="p-5 rounded-2xl bg-orange-50/50 border border-orange-100 hover:shadow-md transition">
+                        <h4 class="font-bold text-gray-900 mb-2">4. 工信部发布AI产业高质量发展行动计划</h4>
+                        <p class="text-gray-600 text-sm mb-3">明确到2026年AI核心产业规模超过5000亿元，培育10家以上独角兽企业。</p>
+                        <div class="text-orange-700 text-sm font-medium">
+                            💡 政策红利持续释放，AI产业链各环节均将受益。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://www.miit.gov.cn" target="_blank" class="text-blue-600 hover:underline">工信部</a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 资本市场表现 -->
+        <section class="glass rounded-3xl p-6 md:p-8 mb-8 card-hover fade-in" style="animation-delay: 0.4s">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-white">
+                    <i class="fa fa-line-chart"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">资本市场表现</h2>
+            </div>
+
+            <!-- 一级市场 -->
+            <div class="mb-8">
+                <h3 class="text-sm font-bold text-yellow-700 uppercase tracking-wider mb-4 flex items-center">
+                    <span class="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></span>
+                    一、国内一级市场投融资动态
+                </h3>
+                <div id="investment-list" class="space-y-4">
+                    <div class="p-5 rounded-2xl bg-yellow-50/50 border border-yellow-100">
+                        <h4 class="font-bold text-gray-900 mb-2">1. 智谱AI 完成 C+轮 融资 25亿元</h4>
+                        <p class="text-gray-600 text-sm mb-3">国内头部大模型公司，专注于通用人工智能技术研发，本轮资金将用于算力扩张和团队建设。</p>
+                        <div class="text-yellow-700 text-sm font-medium">
+                            💡 大模型赛道融资热度不减，智谱作为第一梯队企业估值持续攀升，建议关注其港股上市进程。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://www.itjuzi.com" target="_blank" class="text-blue-600 hover:underline">IT桔子</a></div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-yellow-50/50 border border-yellow-100">
+                        <h4 class="font-bold text-gray-900 mb-2">2. Minimax 完成 B轮 融资 15亿元</h4>
+                        <p class="text-gray-600 text-sm mb-3">专注视频生成和多模态大模型，产品已服务数千家企业客户。</p>
+                        <div class="text-yellow-700 text-sm font-medium">
+                            💡 视频生成是AI应用落地的重要场景，Minimax技术积累深厚，商业化进展迅速。
+                        </div>
+                        <div class="mt-2 text-xs text-gray-400">来源：<a href="https://36kr.com" target="_blank" class="text-blue-600 hover:underline">36氪</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider-gradient my-6"></div>
+
+            <!-- 二级市场 -->
+            <div>
+                <h3 class="text-sm font-bold text-gray-700 uppercase tracking-wider mb-4 flex items-center">
+                    <span class="w-1.5 h-1.5 bg-gray-500 rounded-full mr-2"></span>
+                    二、二级市场动态
+                </h3>
+                <p class="text-xs text-gray-500 mb-4">数据时效：截至 <span id="stock-update-time">--</span> 盘后数据 | 来源：Longbridge实时行情</p>
+
+                <!-- 宏观指数 -->
+                <div class="mb-8">
+                    <h4 class="font-bold text-gray-800 mb-4 text-lg">1、宏观指数</h4>
+                    <div class="overflow-x-auto rounded-2xl border border-gray-200">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-3 text-left font-semibold">市场</th>
+                                    <th class="px-4 py-3 text-left font-semibold">指数名称</th>
+                                    <th class="px-4 py-3 text-right font-semibold">收盘点位</th>
+                                    <th class="px-4 py-3 text-right font-semibold">涨跌幅</th>
+                                    <th class="px-4 py-3 text-left font-semibold hidden md:table-cell">市场特征</th>
+                                </tr>
+                            </thead>
+                            <tbody id="index-table" class="divide-y divide-gray-200 bg-white">
+                                <tr>
+                                    <td class="px-4 py-3">🇺🇸 美股</td>
+                                    <td class="px-4 py-3 font-medium">标普500</td>
+                                    <td class="px-4 py-3 text-right font-mono" id="spx-price">--</td>
+                                    <td class="px-4 py-3 text-right" id="spx-change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 hidden md:table-cell">大盘整体稳定性</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">🇺🇸 美股</td>
+                                    <td class="px-4 py-3 font-medium">纳斯达克综合</td>
+                                    <td class="px-4 py-3 text-right font-mono" id="qqq-price">--</td>
+                                    <td class="px-4 py-3 text-right" id="qqq-change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 hidden md:table-cell">科技成长股情绪</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">🇨🇳 A股</td>
+                                    <td class="px-4 py-3 font-medium">上证指数</td>
+                                    <td class="px-4 py-3 text-right font-mono" id="sh-price">--</td>
+                                    <td class="px-4 py-3 text-right" id="sh-change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 hidden md:table-cell">沪市蓝筹/传统行业情绪</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">🇨🇳 A股</td>
+                                    <td class="px-4 py-3 font-medium">深证成指</td>
+                                    <td class="px-4 py-3 text-right font-mono" id="sz-price">--</td>
+                                    <td class="px-4 py-3 text-right" id="sz-change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 hidden md:table-cell">深市整体/成长股情绪</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">🇨🇳 A股</td>
+                                    <td class="px-4 py-3 font-medium">科创50</td>
+                                    <td class="px-4 py-3 text-right font-mono" id="kcb-price">--</td>
+                                    <td class="px-4 py-3 text-right" id="kcb-change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 hidden md:table-cell">科创板量能变化</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">🇨🇳 A股</td>
+                                    <td class="px-4 py-3 font-medium">创业板指</td>
+                                    <td class="px-4 py-3 text-right font-mono" id="cy-price">--</td>
+                                    <td class="px-4 py-3 text-right" id="cy-change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 hidden md:table-cell">创业板量能变化</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">🇭🇰 港股</td>
+                                    <td class="px-4 py-3 font-medium">恒生指数</td>
+                                    <td class="px-4 py-3 text-right font-mono" id="hsi-price">--</td>
+                                    <td class="px-4 py-3 text-right" id="hsi-change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 hidden md:table-cell">恒指量能变化</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">🇭🇰 港股</td>
+                                    <td class="px-4 py-3 font-medium">恒生科技指数</td>
+                                    <td class="px-4 py-3 text-right font-mono" id="hstech-price">--</td>
+                                    <td class="px-4 py-3 text-right" id="hstech-change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 hidden md:table-cell">恒科指量能变化</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 市场解读 -->
+                    <div class="mt-6 space-y-4">
+                        <!-- 美股解读 -->
+                        <div class="p-5 rounded-2xl bg-blue-50/70 border border-blue-100">
+                            <div class="font-bold text-blue-800 mb-3 flex items-center gap-2 text-base">
+                                <i class="fa fa-bar-chart"></i> 🇺🇸 美股解读
+                            </div>
+                            <div class="text-blue-700 text-sm leading-relaxed" id="us-market-comment">
+                                美股科技股全线大涨，AI主题持续发酵，英伟达、Meta等龙头表现强劲。市场交投活跃，资金持续流入科技板块。
+                            </div>
+                        </div>
+                        <!-- A股解读 -->
+                        <div class="p-5 rounded-2xl bg-red-50/70 border border-red-100">
+                            <div class="font-bold text-red-800 mb-3 flex items-center gap-2 text-base">
+                                <i class="fa fa-bar-chart"></i> 🇨🇳 A股解读
+                            </div>
+                            <div class="text-red-700 text-sm leading-relaxed" id="cn-market-comment">
+                                A股震荡整理，结构性行情明显，科创50表现相对强势。AI相关板块持续活跃，市场关注政策面动向。
+                            </div>
+                        </div>
+                        <!-- 港股解读 -->
+                        <div class="p-5 rounded-2xl bg-purple-50/70 border border-purple-100">
+                            <div class="font-bold text-purple-800 mb-3 flex items-center gap-2 text-base">
+                                <i class="fa fa-bar-chart"></i> 🇭🇰 港股解读
+                            </div>
+                            <div class="text-purple-700 text-sm leading-relaxed" id="hk-market-comment">
+                                港股科技股集体反弹，南向资金持续流入，阿里、腾讯等龙头获资金青睐。恒生科技指数跑赢大盘。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 美股M7 -->
+                <div class="mb-8">
+                    <h4 class="font-bold text-gray-800 mb-4 text-lg">2、美股 Magnificent 7</h4>
+                    <div class="overflow-x-auto rounded-2xl border border-gray-200">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-3 text-left font-semibold">公司名称</th>
+                                    <th class="px-4 py-3 text-right font-semibold">股价(USD)</th>
+                                    <th class="px-4 py-3 text-right font-semibold hidden md:table-cell">市值</th>
+                                    <th class="px-4 py-3 text-right font-semibold">涨跌幅</th>
+                                    <th class="px-4 py-3 text-right font-semibold hidden md:table-cell">成交额</th>
+                                    <th class="px-4 py-3 text-left font-semibold hidden md:table-cell">特征描述</th>
+                                </tr>
+                            </thead>
+                            <tbody id="m7-table" class="divide-y divide-gray-200 bg-white">
+                                <tr data-symbol="NVDA.US">
+                                    <td class="px-4 py-3 font-medium">英伟达 (NVDA)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">3.48万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell text-gray-500">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">GTC大会催化，订单预期乐观</td>
+                                </tr>
+                                <tr data-symbol="MSFT.US">
+                                    <td class="px-4 py-3 font-medium">微软 (MSFT)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">3.21万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell text-gray-500">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">AI服务收入超预期，Azure增长稳健</td>
+                                </tr>
+                                <tr data-symbol="AAPL.US">
+                                    <td class="px-4 py-3 font-medium">苹果 (AAPL)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">3.62万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell text-gray-500">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">Vision Pro销量平淡，关注AI进展</td>
+                                </tr>
+                                <tr data-symbol="GOOGL.US">
+                                    <td class="px-4 py-3 font-medium">谷歌 (GOOGL)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">2.31万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell text-gray-500">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">Gemini企业版发布，估值修复中</td>
+                                </tr>
+                                <tr data-symbol="AMZN.US">
+                                    <td class="px-4 py-3 font-medium">亚马逊 (AMZN)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">2.08万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell text-gray-500">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">AWS增速回升，电商业务稳健</td>
+                                </tr>
+                                <tr data-symbol="META.US">
+                                    <td class="px-4 py-3 font-medium">Meta (META)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">1.59万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell text-gray-500">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">Reels变现加速，AI推荐提升广告效率</td>
+                                </tr>
+                                <tr data-symbol="TSLA.US">
+                                    <td class="px-4 py-3 font-medium">特斯拉 (TSLA)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">0.86万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell text-gray-500">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">欧洲销量下滑，FSD入华待批</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3 p-4 rounded-2xl bg-gray-50 border border-gray-200">
+                        <div class="font-bold text-gray-800 mb-1 flex items-center gap-2">
+                            <i class="fa fa-info-circle text-indigo-600"></i> 💡 解读
+                        </div>
+                        <div class="text-gray-700 text-sm" id="m7-comment">
+                            美股科技巨头走势分化中趋强，AI主题仍是核心驱动力。英伟达、微软等龙头受益于AI商业化落地预期，资金持续流入科技板块。META表现亮眼受益于Reels变现加速。结合ETF资金流向和机构评级动向，科技股整体配置意愿仍强。建议关注Q2财报季业绩兑现情况及美联储政策预期变化。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 港股 -->
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-4 text-lg">3、业务相关标的市场表现 - 🇭🇰 港股</h4>
+                    <div class="overflow-x-auto rounded-2xl border border-gray-200">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-3 text-left font-semibold">公司名称</th>
+                                    <th class="px-4 py-3 text-right font-semibold">股价(HKD)</th>
+                                    <th class="px-4 py-3 text-right font-semibold hidden md:table-cell">市值</th>
+                                    <th class="px-4 py-3 text-right font-semibold">涨跌幅</th>
+                                    <th class="px-4 py-3 text-left font-semibold hidden md:table-cell">南向资金</th>
+                                </tr>
+                            </thead>
+                            <tbody id="hk-table" class="divide-y divide-gray-200 bg-white">
+                                <tr data-symbol="00700.HK">
+                                    <td class="px-4 py-3 font-medium">腾讯控股 (00700)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">4.85万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-green-600 text-xs hidden md:table-cell">+12.5亿</td>
+                                </tr>
+                                <tr data-symbol="09988.HK">
+                                    <td class="px-4 py-3 font-medium">阿里巴巴-W (09988)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">2.47万亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-green-600 text-xs hidden md:table-cell">+8.3亿</td>
+                                </tr>
+                                <tr data-symbol="03690.HK">
+                                    <td class="px-4 py-3 font-medium">美团-W (03690)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">8850亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-green-600 text-xs hidden md:table-cell">+5.2亿</td>
+                                </tr>
+                                <tr data-symbol="01810.HK">
+                                    <td class="px-4 py-3 font-medium">小米集团-W (01810)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">4620亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-green-600 text-xs hidden md:table-cell">+3.8亿</td>
+                                </tr>
+                                <tr data-symbol="02513.HK">
+                                    <td class="px-4 py-3 font-medium">智谱AI (02513)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">285亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-gray-400 text-xs hidden md:table-cell">--</td>
+                                </tr>
+                                <tr data-symbol="00100.HK">
+                                    <td class="px-4 py-3 font-medium">Minimax (00100)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">180亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-gray-400 text-xs hidden md:table-cell">--</td>
+                                </tr>
+                                <tr data-symbol="01384.HK">
+                                    <td class="px-4 py-3 font-medium">滴普科技 (01384)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">45亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-gray-400 text-xs hidden md:table-cell">--</td>
+                                </tr>
+                                <tr data-symbol="02706.HK">
+                                    <td class="px-4 py-3 font-medium">海致科技 (02706)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">120亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-gray-400 text-xs hidden md:table-cell">--</td>
+                                </tr>
+                                <tr data-symbol="00020.HK">
+                                    <td class="px-4 py-3 font-medium">商汤-W (00020)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">620亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-green-600 text-xs hidden md:table-cell">+1.2亿</td>
+                                </tr>
+                                <tr data-symbol="06687.HK">
+                                    <td class="px-4 py-3 font-medium">聚水潭 (06687)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">65亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-gray-400 text-xs hidden md:table-cell">--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3 p-4 rounded-2xl bg-purple-50 border border-purple-200">
+                        <div class="font-bold text-purple-800 mb-1 flex items-center gap-2">
+                            <i class="fa fa-info-circle text-purple-600"></i> 💡 解读
+                        </div>
+                        <div class="text-purple-700 text-sm" id="hk-comment">
+                            结合恒生科技指数走势，港股AI应用端整体受情绪驱动，个股表现有所分化。南向资金持续流入科技股，内外资对龙头标的形成共识。建议关注大模型商业化进展及港股通资金流向变化。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A股 -->
+                <div class="mb-8">
+                    <h4 class="font-bold text-gray-800 mb-4 text-lg">4、业务相关标的市场表现 - 🇨🇳 A股</h4>
+                    <div class="overflow-x-auto rounded-2xl border border-gray-200">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-3 text-left font-semibold">公司名称</th>
+                                    <th class="px-4 py-3 text-right font-semibold">股价(CNY)</th>
+                                    <th class="px-4 py-3 text-right font-semibold hidden md:table-cell">市值</th>
+                                    <th class="px-4 py-3 text-right font-semibold">涨跌幅</th>
+                                    <th class="px-4 py-3 text-left font-semibold hidden md:table-cell">北向资金</th>
+                                </tr>
+                            </thead>
+                            <tbody id="a-table" class="divide-y divide-gray-200 bg-white">
+                                <tr data-symbol="603171.SH">
+                                    <td class="px-4 py-3 font-medium">税友股份 (603171)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">125亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3 p-4 rounded-2xl bg-red-50 border border-red-200">
+                        <div class="font-bold text-red-800 mb-1 flex items-center gap-2">
+                            <i class="fa fa-info-circle text-red-600"></i> 💡 解读
+                        </div>
+                        <div class="text-red-700 text-sm" id="a-comment">
+                            对比上证指数/科创50走势，税友股份表现相对独立。结合融资余额及北向资金流向，短期资金分歧仍存在但中长期共识逐渐形成。作为财税SaaS龙头，基本面受益于金税四期政策推进，建议关注后续政策落地节奏及市场份额变化。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 美股对标 -->
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-4 text-lg">5、美股对标 - 🇺🇸 财税SaaS</h4>
+                    <div class="overflow-x-auto rounded-2xl border border-gray-200">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-3 text-left font-semibold">公司名称</th>
+                                    <th class="px-4 py-3 text-right font-semibold">股价(USD)</th>
+                                    <th class="px-4 py-3 text-right font-semibold hidden md:table-cell">市值</th>
+                                    <th class="px-4 py-3 text-right font-semibold">涨跌幅</th>
+                                    <th class="px-4 py-3 text-left font-semibold hidden md:table-cell">机构评级</th>
+                                </tr>
+                            </thead>
+                            <tbody id="us-peer-table" class="divide-y divide-gray-200 bg-white">
+                                <tr data-symbol="INTU.US">
+                                    <td class="px-4 py-3 font-medium">财捷 (INTU)</td>
+                                    <td class="px-4 py-3 text-right font-mono font-bold price">--</td>
+                                    <td class="px-4 py-3 text-right hidden md:table-cell">1750亿</td>
+                                    <td class="px-4 py-3 text-right change">--</td>
+                                    <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">买入/增持</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3 p-4 rounded-2xl bg-blue-50 border border-blue-200">
+                        <div class="font-bold text-blue-800 mb-1 flex items-center gap-2">
+                            <i class="fa fa-info-circle text-blue-600"></i> 💡 解读
+                        </div>
+                        <div class="text-blue-700 text-sm" id="us-peer-comment">
+                            对比纳斯达克指数，财捷(INTU)走势关联度中等。结合机构评级和资金流向，市场对其AI税务助手产品预期乐观。与A股税友股份相比，估值溢价明显但成长性稳定，提供跨市场估值参考视角。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 今日重点关注 -->
+        <section class="glass rounded-3xl p-6 md:p-8 mb-8 card-hover fade-in" style="animation-delay: 0.5s">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-red-500 flex items-center justify-center text-white">
+                    <i class="fa fa-clock-o"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 font-serif">今日重点关注</h2>
+            </div>
+
+            <div id="events-list" class="space-y-4">
+                <div class="p-5 rounded-2xl bg-red-50/70 border-l-4 border-red-400">
+                    <div class="font-bold text-gray-900 mb-3 flex items-center gap-2 text-lg">
+                        <i class="fa fa-calendar text-red-500"></i>
+                        20:30 美国3月非农就业数据发布
+                    </div>
+                    <div class="text-gray-700 mb-2">
+                        <span class="font-semibold">📊 市场预期：</span>新增就业20万人，失业率3.8%
+                    </div>
+                    <div class="text-red-700 font-medium">
+                        <span class="font-semibold">💡 业务关联：</span>数据将影响美联储降息预期，进而影响全球风险资产定价。若数据强于预期，可能短期压制科技股估值。
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-red-50/70 border-l-4 border-red-400">
+                    <div class="font-bold text-gray-900 mb-3 flex items-center gap-2 text-lg">
+                        <i class="fa fa-calendar text-red-500"></i>
+                        22:00 美联储官员讲话
+                    </div>
+                    <div class="text-gray-700 mb-2">
+                        <span class="font-semibold">📊 市场预期：</span>关注对通胀和利率路径的表态
+                    </div>
+                    <div class="text-red-700 font-medium">
+                        <span class="font-semibold">💡 业务关联：</span>官员表态将影响市场对6月降息概率的定价，进而影响资金流向。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="text-center text-gray-600 text-sm py-8">
+            <p class="font-serif text-lg mb-2 text-gray-800">明心战略新闻日报</p>
+            <p class="text-gray-500">数据为AI采集，仅供参考</p>
+            <p class="mt-2 text-gray-400">更新时间：<span id="footer-time">--</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // 格式化涨跌
+        function formatChange(changePercent) {
+            const isUp = changePercent >= 0;
+            const arrow = isUp ? '▲' : '▼';
+            const className = isUp ? 'trend-up' : 'trend-down';
+            return `<span class="${className}">${arrow} ${Math.abs(changePercent).toFixed(2)}%</span>`;
+        }
+
+        // 当前选中的日期
+        let currentDate = '';
+
+        // 加载可用日期列表
+        async function loadDateSelector() {
+            try {
+                const res = await fetch('/api/dates');
+                const result = await res.json();
+
+                if (!result.success) return;
+
+                const selector = document.getElementById('date-selector');
+                selector.innerHTML = '';
+
+                result.dates.forEach((date, index) => {
+                    const option = document.createElement('option');
+                    option.value = date.value;
+                    option.textContent = date.label + ' (' + date.value + ')';
+                    if (index === 0) {
+                        option.selected = true;
+                        currentDate = date.value;
+                    }
+                    selector.appendChild(option);
+                });
+
+                // 加载选中日期的数据
+                if (currentDate) {
+                    loadDataByDate(currentDate);
+                }
+            } catch (error) {
+                console.error('加载日期列表失败:', error);
+            }
+        }
+
+        // 按日期加载数据
+        async function loadDataByDate(date) {
+            if (!date) return;
+            currentDate = date;
+
+            // 更新日期显示
+            const year = date.split('-')[0];
+            const month = date.split('-')[1];
+            const day = date.split('-')[2];
+            const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+            const dateObj = new Date(date);
+            const weekday = weekdays[dateObj.getDay()];
+
+            document.getElementById('header-date').innerHTML =
+                `<i class="fa fa-calendar-o mr-2"></i>${year}-${month}-${day} ${weekday}`;
+            document.getElementById('stock-update-time').textContent = date;
+
+            // 显示加载状态
+            showLoadingState();
+
+            try {
+                // 加载股票数据
+                await loadStockDataForDate(date);
+
+                // 加载政治新闻
+                await loadPoliticsNews(date);
+
+                // 加载AI新闻
+                await loadAINews(date);
+
+                // 加载投融资数据
+                await loadInvestmentData(date);
+
+                // 加载核心摘要
+                await loadSummaryData(date);
+
+            } catch (error) {
+                console.error('加载数据失败:', error);
+            }
+        }
+
+        // 显示加载状态
+        function showLoadingState() {
+            // 股票表格显示加载中
+            document.querySelectorAll('.price').forEach(el => {
+                el.textContent = '--';
+                el.classList.add('text-gray-400');
+            });
+            document.querySelectorAll('.change').forEach(el => {
+                el.innerHTML = '--';
+            });
+        }
+
+        // 加载指定日期的股票数据
+        async function loadStockDataForDate(date) {
+            try {
+                const res = await fetch(`/api/stocks?date=${date}`);
+                const result = await res.json();
+
+                if (!result.success || !result.data) return;
+
+                const data = result.data;
+
+                // 移除加载状态
+                document.querySelectorAll('.price').forEach(el => {
+                    el.classList.remove('text-gray-400');
+                });
+
+                // 更新指数
+                if (data.indices) {
+                    data.indices.forEach(idx => {
+                        const symbolMap = {
+                            'QQQ.US': { price: 'qqq-price', change: 'qqq-change' },
+                            'HSI.HK': { price: 'hsi-price', change: 'hsi-change' },
+                            '000001.SH': { price: 'sh-price', change: 'sh-change' }
+                        };
+
+                        if (symbolMap[idx.symbol]) {
+                            const priceEl = document.getElementById(symbolMap[idx.symbol].price);
+                            const changeEl = document.getElementById(symbolMap[idx.symbol].change);
+
+                            if (priceEl) priceEl.textContent = idx.price.toLocaleString();
+                            if (changeEl) changeEl.innerHTML = formatChange(idx.changePercent);
+                        }
+                    });
+                }
+
+                // 更新M7
+                if (data.m7) {
+                    data.m7.forEach(stock => {
+                        const row = document.querySelector(`#m7-table tr[data-symbol="${stock.symbol}"]`);
+                        if (row) {
+                            const priceEl = row.querySelector('.price');
+                            const changeEl = row.querySelector('.change');
+
+                            if (priceEl) priceEl.textContent = stock.price.toFixed(2);
+                            if (changeEl) changeEl.innerHTML = formatChange(stock.changePercent);
+                        }
+                    });
+                }
+
+                // 更新港股
+                if (data.hkStocks) {
+                    data.hkStocks.forEach(stock => {
+                        const row = document.querySelector(`#hk-table tr[data-symbol="${stock.symbol}"]`);
+                        if (row) {
+                            const priceEl = row.querySelector('.price');
+                            const changeEl = row.querySelector('.change');
+
+                            if (priceEl) priceEl.textContent = stock.price.toFixed(2);
+                            if (changeEl) changeEl.innerHTML = formatChange(stock.changePercent);
+                        }
+                    });
+                }
+
+                // 更新市场解读
+                if (data.marketCommentary) {
+                    if (data.marketCommentary.us) {
+                        document.getElementById('us-market-comment').textContent = data.marketCommentary.us;
+                    }
+                    if (data.marketCommentary.cn) {
+                        document.getElementById('cn-market-comment').textContent = data.marketCommentary.cn;
+                    }
+                    if (data.marketCommentary.hk) {
+                        document.getElementById('hk-market-comment').textContent = data.marketCommentary.hk;
+                    }
+                }
+
+            } catch (error) {
+                console.error('加载股票数据失败:', error);
+            }
+        }
+
+        // 加载政治新闻
+        async function loadPoliticsNews(date) {
+            try {
+                const res = await fetch(`/api/news/politics?date=${date}`);
+                const result = await res.json();
+
+                if (!result.success || !result.data || !result.data.items) return;
+
+                const items = result.data.items;
+                const international = items.filter(i => i.category === 'international').slice(0, 2);
+                const domestic = items.filter(i => i.category === 'domestic').slice(0, 2);
+
+                // 更新国际政治
+                const intlContainer = document.getElementById('intl-politics');
+                if (intlContainer && international.length > 0) {
+                    intlContainer.innerHTML = international.map((item, idx) => `
+                        <article class="p-5 rounded-2xl bg-slate-50 hover:bg-slate-100 transition border border-slate-200">
+                            <h4 class="font-bold text-gray-900 mb-2 text-lg">${idx + 1}. ${item.title}</h4>
+                            <p class="text-gray-600 mb-3 leading-relaxed">${item.content || item.title}</p>
+                            <div class="flex items-start gap-2 text-indigo-700 bg-indigo-50 p-3 rounded-xl">
+                                <i class="fa fa-lightbulb-o mt-1"></i>
+                                <span class="text-sm font-medium">💡 ${item.businessInsight || '建议持续关注'}</span>
+                            </div>
+                            <div class="mt-3 text-xs text-gray-400">来源：<a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.source}</a></div>
+                        </article>
+                    `).join('');
+                }
+
+                // 更新国内政治
+                const domesticContainer = document.getElementById('domestic-politics');
+                if (domesticContainer && domestic.length > 0) {
+                    domesticContainer.innerHTML = domestic.map((item, idx) => `
+                        <article class="p-5 rounded-2xl bg-red-50/50 hover:bg-red-50 transition border border-red-100">
+                            <h4 class="font-bold text-gray-900 mb-2 text-lg">${idx + 1}. ${item.title}</h4>
+                            <p class="text-gray-600 mb-3 leading-relaxed">${item.content || item.title}</p>
+                            <div class="flex items-start gap-2 text-red-700 bg-red-100/50 p-3 rounded-xl">
+                                <i class="fa fa-lightbulb-o mt-1"></i>
+                                <span class="text-sm font-medium">💡 ${item.businessInsight || '建议持续关注'}</span>
+                            </div>
+                            <div class="mt-3 text-xs text-gray-400">来源：<a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.source}</a></div>
+                        </article>
+                    `).join('');
+                }
+
+                console.log('✓ 政治新闻已更新');
+            } catch (error) {
+                console.error('加载政治新闻失败:', error);
+            }
+        }
+
+        // 加载AI新闻
+        async function loadAINews(date) {
+            try {
+                const res = await fetch(`/api/news/ai?date=${date}`);
+                const result = await res.json();
+
+                if (!result.success || !result.data || !result.data.items) return;
+
+                const items = result.data.items;
+                const aiInternational = items.filter(i => i.category === 'ai-international').slice(0, 4);
+                const aiDomestic = items.filter(i => i.category === 'ai-domestic').slice(0, 4);
+
+                // 更新海外AI
+                const aiIntlContainer = document.getElementById('ai-intl');
+                if (aiIntlContainer && aiInternational.length > 0) {
+                    aiIntlContainer.innerHTML = aiInternational.map((item, idx) => `
+                        <article class="p-5 rounded-2xl bg-purple-50/50 border border-purple-100 hover:shadow-md transition">
+                            <h4 class="font-bold text-gray-900 mb-2">${idx + 1}. ${item.title}</h4>
+                            <p class="text-gray-600 text-sm mb-3">${item.content ? item.content.slice(0, 150) + '...' : item.title}</p>
+                            <div class="text-purple-700 text-sm font-medium">
+                                💡 ${item.businessInsight || '建议持续关注AI技术进展'}
+                            </div>
+                            <div class="mt-2 text-xs text-gray-400">来源：<a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.source}</a></div>
+                        </article>
+                    `).join('');
+                }
+
+                // 更新国内AI
+                const aiDomesticContainer = document.getElementById('ai-domestic');
+                if (aiDomesticContainer && aiDomestic.length > 0) {
+                    aiDomesticContainer.innerHTML = aiDomestic.map((item, idx) => `
+                        <article class="p-5 rounded-2xl bg-orange-50/50 border border-orange-100 hover:shadow-md transition">
+                            <h4 class="font-bold text-gray-900 mb-2">${idx + 1}. ${item.title}</h4>
+                            <p class="text-gray-600 text-sm mb-3">${item.content ? item.content.slice(0, 150) + '...' : item.title}</p>
+                            <div class="text-orange-700 text-sm font-medium">
+                                💡 ${item.businessInsight || '建议关注国内AI产业机会'}
+                            </div>
+                            <div class="mt-2 text-xs text-gray-400">来源：<a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.source}</a></div>
+                        </article>
+                    `).join('');
+                }
+
+                console.log('✓ AI新闻已更新');
+            } catch (error) {
+                console.error('加载AI新闻失败:', error);
+            }
+        }
+
+        // 加载投融资数据
+        async function loadInvestmentData(date) {
+            try {
+                const res = await fetch(`/api/investment?date=${date}`);
+                const result = await res.json();
+
+                if (!result.success || !result.data || !result.data.items) return;
+
+                const items = result.data.items.slice(0, 5);
+                const investmentContainer = document.getElementById('investment-list');
+
+                if (investmentContainer && items.length > 0) {
+                    investmentContainer.innerHTML = items.map((item, idx) => `
+                        <div class="p-5 rounded-2xl bg-yellow-50/50 border border-yellow-100">
+                            <h4 class="font-bold text-gray-900 mb-2">${idx + 1}. ${item.company} ${item.round !== '未披露' ? item.round : ''} 融资 ${item.amount !== '未披露' ? item.amount : ''}</h4>
+                            <p class="text-gray-600 text-sm mb-3">${item.investors !== '未披露' ? '投资方：' + item.investors : ''}</p>
+                            <div class="text-yellow-700 text-sm font-medium">
+                                💡 ${item.insight || '建议关注该赛道发展动态'}
+                            </div>
+                            <div class="mt-2 text-xs text-gray-400">来源：<a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.source}</a></div>
+                        </div>
+                    `).join('');
+                }
+
+                console.log('✓ 投融资数据已更新');
+            } catch (error) {
+                console.error('加载投融资数据失败:', error);
+            }
+        }
+
+        // 加载核心摘要
+        async function loadSummaryData(date) {
+            try {
+                const res = await fetch(`/api/summary?date=${date}`);
+                const result = await res.json();
+
+                if (!result.success || !result.data) return;
+
+                const summary = result.data;
+
+                // 更新核心摘要文本
+                if (summary.summary) {
+                    document.getElementById('core-summary').textContent = summary.summary;
+                }
+
+                console.log('✓ 核心摘要已更新');
+            } catch (error) {
+                console.error('加载核心摘要失败:', error);
+            }
+        }
+
+        // 刷新数据
+        async function refreshData() {
+            const btn = document.querySelector('button[onclick="refreshData()"]');
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i><span class="hidden md:inline">刷新中...</span>';
+            }
+
+            try {
+                await fetch('/api/fetch/all', { method: 'POST' });
+                await loadDateSelector(); // 重新加载日期列表
+                alert('数据刷新成功！');
+            } catch (error) {
+                console.error('刷新失败:', error);
+                alert('刷新失败，请稍后重试');
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa fa-refresh"></i><span class="hidden md:inline">刷新数据</span>';
+                }
+            }
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDateSelector();
+        });
+    </script>
+</body>
+</html>
