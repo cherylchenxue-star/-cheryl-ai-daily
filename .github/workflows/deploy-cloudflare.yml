@@ -1,0 +1,33 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [gh-pages]
+  schedule:
+    - cron: '0 23 * * *'  # 每天 UTC 23:00 (北京时间次日 7:00)
+  workflow_dispatch:
+
+jobs:
+  fetch-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Fetch latest data
+        run: |
+          # 检查日期
+          TODAY=$(date +%Y-%m-%d)
+          echo "Today: $TODAY"
+          ls -la data/ || echo "No data dir"
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: cheryl-ai-daily
+          directory: .
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
